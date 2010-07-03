@@ -16,8 +16,9 @@
 class CIJoeDelegate
   attr_accessor :data, :response, :error, :delegate, :success_callback, :failure_callback
   
-  def initialize
+  def initialize(&block)
     self.data = NSMutableData.new
+    yield self if block_given?
   end
   
   def success(&block)
@@ -41,7 +42,7 @@ class CIJoeDelegate
   def connection(connection, didFailWithError:error)
     NSLog("Failed")
     self.error = error
-    failure_callback.call(data, error)
+    failure_callback.call(data, response, error)
   end
   
   def connectionDidFinishLoading(connection)

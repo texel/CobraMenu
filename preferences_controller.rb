@@ -16,7 +16,6 @@ class PreferencesController < NSWindowController
   end
   
   def save_prefs(sender)
-    NSLog("These defaults look good!")
     defaults_controller.save self
     window.performClose self
   end

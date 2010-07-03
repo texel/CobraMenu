@@ -33,6 +33,8 @@ class ApplicationController < NSObject
       s.highlightMode = true
       s.image         = status_images[:inactive]
     end    
+    
+    show_prefs_window unless defaults['url']
   end
   
   def show_prefs_window(sender)
@@ -47,15 +49,29 @@ class ApplicationController < NSObject
     request = NSMutableURLRequest.new
     request.URL = NSURL.URLWithString defaults['url']
     
-    delegate = CIJoeDelegate.new
-    
-    delegate.success do |data, response|
-      NSLog("Status: #{response.statusCode}")
-      NSLog("Data: #{data}")
-    end
-    
-    delegate.failure do
-      NSLog("BOO")
+    delegate = CIJoeDelegate.new do |d|
+      d.success do |data, response|
+        NSLog("Status: #{response.statusCode}")
+        NSLog("Data: #{data}")
+        
+        data_string = data.to_s
+        
+        # The CI Joe ping action doesn't give us enough info to
+        # figure out whether we've succeeded, are still building, or have failed.
+        # Instead, we regex match the html response. Ghetto? Yes.
+        if data_string =~ /building|starting/i
+          status_item.image = status_images[:building]
+        elsif data_string =~ /worked/i
+          status_item.image = status_images[:success]
+        else
+          status_item.image = status_images[:failure]
+        end
+      end
+      
+      d.failure do |data, response|
+        NSLog("BOO")
+        NSLog("data: #{data}")
+      end
     end
     
     NSURLConnection.connectionWithRequest(request, :delegate => delegate)
