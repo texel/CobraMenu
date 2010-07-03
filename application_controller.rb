@@ -7,10 +7,13 @@
 #
 
 class ApplicationController < NSObject
-  attr_accessor :status_item, :status_images, :status_menu
+  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller
   
   def initialize
     super
+    
+    # We don't want changes to prefs to apply immediately
+    NSUserDefaultsController.sharedUserDefaultsController.appliesImmediately = false
     
     bundle = NSBundle.mainBundle
     
@@ -27,6 +30,16 @@ class ApplicationController < NSObject
       s.menu          = status_menu
       s.highlightMode = true
       s.image         = status_images[:inactive]
-    end
+    end    
+  end
+  
+  def show_prefs_window(sender)
+    preferences_controller.showWindow self
+    preferences_controller.window.makeKeyAndOrderFront self
+    NSApp.activateIgnoringOtherApps true
+  end
+  
+  def ping_ci(sender)
+  
   end
 end

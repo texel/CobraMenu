@@ -51,6 +51,7 @@
 		7D679A2511DEE66E00A91A79 /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2211DEE66E00A91A79 /* success.png */; };
 		7D679A2D11DEE6E100A91A79 /* application_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2C11DEE6E100A91A79 /* application_controller.rb */; };
 		7D679A3D11DEE98900A91A79 /* inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A3C11DEE98900A91A79 /* inactive.png */; };
+		7D679A5511DFBD2200A91A79 /* preferences_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A5411DFBD2200A91A79 /* preferences_controller.rb */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -85,6 +86,7 @@
 		7D679A2211DEE66E00A91A79 /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = success.png; path = Images/success.png; sourceTree = "<group>"; };
 		7D679A2C11DEE6E100A91A79 /* application_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = application_controller.rb; sourceTree = "<group>"; };
 		7D679A3C11DEE98900A91A79 /* inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inactive.png; path = Images/inactive.png; sourceTree = "<group>"; };
+		7D679A5411DFBD2200A91A79 /* preferences_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = preferences_controller.rb; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CobraMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CobraMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 				7D679A2C11DEE6E100A91A79 /* application_controller.rb */,
 				4DE339F60D74FCDD00ADB6EE /* rb_main.rb */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				7D679A5411DFBD2200A91A79 /* preferences_controller.rb */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				7D679A2511DEE66E00A91A79 /* success.png in Resources */,
 				7D679A2D11DEE6E100A91A79 /* application_controller.rb in Resources */,
 				7D679A3D11DEE98900A91A79 /* inactive.png in Resources */,
+				7D679A5511DFBD2200A91A79 /* preferences_controller.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
