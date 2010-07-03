@@ -7,13 +7,15 @@
 #
 
 class ApplicationController < NSObject
-  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller
+  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults
   
   def initialize
     super
     
     # We don't want changes to prefs to apply immediately
     NSUserDefaultsController.sharedUserDefaultsController.appliesImmediately = false
+    
+    self.defaults = NSUserDefaultsController.sharedUserDefaultsController.defaults
     
     bundle = NSBundle.mainBundle
     
@@ -40,6 +42,22 @@ class ApplicationController < NSObject
   end
   
   def ping_ci(sender)
-  
+    NSLog("No URL provided!") and return unless defaults['url']
+    
+    request = NSMutableURLRequest.new
+    request.URL = NSURL.URLWithString defaults['url']
+    
+    delegate = CIJoeDelegate.new
+    
+    delegate.success do |data, response|
+      NSLog("Status: #{response.statusCode}")
+      NSLog("Data: #{data}")
+    end
+    
+    delegate.failure do
+      NSLog("BOO")
+    end
+    
+    NSURLConnection.connectionWithRequest(request, :delegate => delegate)
   end
 end
