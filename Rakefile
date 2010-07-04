@@ -7,6 +7,8 @@ ChocTop::Configuration.new do |s|
   # Remote upload target (set host if not same as Info.plist['SUFeedURL'])
   s.host     = 'dl.cobramenu.onehub.com'
   s.remote_dir = '/path/to/upload/root/of/app'
+  
+  s.build_target = 'Embed'
 
   # Custom DMG
   # s.background_file = "background.jpg"

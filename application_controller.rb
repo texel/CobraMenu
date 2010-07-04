@@ -9,8 +9,10 @@
 class ApplicationController < NSObject
   attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer
   
-  # TODO: Make this a preference
-  TIME_INTERVAL = 60
+  DEFAULT_VALUES = {
+    'url'           => '',
+    'ping_interval' => 60
+  }
   
   def initialize
     super
@@ -18,8 +20,10 @@ class ApplicationController < NSObject
     # We don't want changes to prefs to apply immediately
     NSUserDefaultsController.sharedUserDefaultsController.appliesImmediately = false
     
-    self.defaults = NSUserDefaultsController.sharedUserDefaultsController.defaults
+    self.defaults = NSUserDefaults.standardUserDefaults
     
+    defaults.registerDefaults(DEFAULT_VALUES)
+            
     bundle = NSBundle.mainBundle
     
     self.status_images = {}
@@ -30,30 +34,35 @@ class ApplicationController < NSObject
     end
   end
     
-  def awakeFromNib    
+  def awakeFromNib
     self.status_item = NSStatusBar.systemStatusBar.statusItemWithLength(NSSquareStatusItemLength).tap do |s|
       s.menu          = status_menu
       s.highlightMode = true
       s.image         = status_images[:inactive]
     end    
-    
-    if defaults['url']
-      schedule_timer
-    else
+
+    if defaults['url'] == DEFAULT_VALUES['url']
       show_prefs_window
+    else
+      schedule_timer
     end
+  rescue ArgumentError => e
+    # This rescue is here until I can figure out what's going on with
+    # argument errors thrown on awakeFromNib with a blank url in the defaults.
+    puts 'WTF?'
+    puts e.backtrace.join '\n'
   end
   
   def schedule_timer
-    self.timer = NSTimer.timerWithTimeInterval TIME_INTERVAL,
+    self.timer = NSTimer.timerWithTimeInterval defaults['ping_interval'],
       :target   => self,
       :selector => 'ping_ci:',
       :userInfo => nil,
       :repeats  => true
       
     NSRunLoop.currentRunLoop.addTimer timer, :forMode => NSDefaultRunLoopMode
-    
-    timer.fire
+        
+    ping_ci self
   end
   
   def show_prefs_window(sender)
@@ -62,7 +71,7 @@ class ApplicationController < NSObject
     NSApp.activateIgnoringOtherApps true
   end
   
-  def ping_ci(sender = self)
+  def ping_ci(sender)
     NSLog("No URL provided!") and return unless defaults['url']
     
     request = NSMutableURLRequest.new
@@ -86,8 +95,8 @@ class ApplicationController < NSObject
         end
       end
       
-      d.failure do |data, response|
-        NSLog("Status: #{response.statusCode}")
+      d.failure do |data, error|
+        NSLog("Status: #{error}")
         update_image :inactive
       end
     end

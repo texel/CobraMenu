@@ -6,13 +6,6 @@
 #  Copyright (c) 2010 Onehub, Inc. All rights reserved.
 #
 
-=begin
-  - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
-  - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSHTTPURLResponse *)response;
-  - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
-  - (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-=end
-
 class CIJoeDelegate
   attr_accessor :data, :response, :error, :delegate, :success_callback, :failure_callback
   
@@ -39,7 +32,7 @@ class CIJoeDelegate
   
   def connection(connection, didFailWithError:error)
     self.error = error
-    failure_callback.call(data, response, error)
+    failure_callback.call(data, error)
   end
   
   def connectionDidFinishLoading(connection)    

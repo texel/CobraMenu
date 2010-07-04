@@ -7,20 +7,20 @@
 #
 
 class PreferencesController < NSWindowController
-  attr_accessor :defaults, :url_field, :defaults_controller
+  attr_accessor :defaults, :url_field, :defaults_controller, :defaults_controller
   
-  def initialize 
-    super
-    
-    self.defaults = defaults_controller.defaults
+  def awakeFromNib
+    self.defaults_controller = NSUserDefaultsController.sharedUserDefaultsController
   end
   
-  def save_prefs(sender = self)
+  def save_prefs(sender)
     defaults_controller.save self
+    defaults = NSUserDefaults.standardUserDefaults
+    
     window.performClose self
     
     application_controller = NSApplication.sharedApplication.delegate
     
-    application_controller.schedule_timer unless application_controller.timer
+    application_controller.schedule_timer
   end
 end
