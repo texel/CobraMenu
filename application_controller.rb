@@ -87,8 +87,7 @@ class ApplicationController < NSObject
       end
       
       d.failure do |data, response|
-        NSLog("BOO")
-        NSLog("data: #{data}")
+        NSLog("Status: #{response.statusCode}")
         update_image :inactive
       end
     end
