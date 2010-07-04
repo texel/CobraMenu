@@ -28,5 +28,7 @@
 	<true/>
 	<key>SUFeedURL</key>
 	<string>http://dl.cobramenu.onehub.com/cobramenu.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
 </dict>
 </plist>
