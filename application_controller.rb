@@ -78,20 +78,25 @@ class ApplicationController < NSObject
         # figure out whether we've succeeded, are still building, or have failed.
         # Instead, we regex match the html response. Ghetto? Yes.
         if data_string =~ /building|starting/i
-          status_item.image = status_images[:building]
+          update_image :building
         elsif data_string =~ /worked/i
-          status_item.image = status_images[:success]
+          update_image :success
         else
-          status_item.image = status_images[:failure]
+          update_image :failure
         end
       end
       
       d.failure do |data, response|
         NSLog("BOO")
         NSLog("data: #{data}")
+        update_image :inactive
       end
     end
     
     NSURLConnection.connectionWithRequest(request, :delegate => delegate)
+  end
+  
+  def update_image(name)
+    status_item.image = status_images[name]
   end
 end

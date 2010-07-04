@@ -30,24 +30,19 @@ class CIJoeDelegate
   end
   
   def connection(connection, didReceiveData:data)
-    NSLog("Received Data")
     self.data.appendData data
   end
   
   def connection(connection, didReceiveResponse:response)
-    NSLog("Received Response")
     self.response = response
   end
   
   def connection(connection, didFailWithError:error)
-    NSLog("Failed")
     self.error = error
     failure_callback.call(data, response, error)
   end
   
-  def connectionDidFinishLoading(connection)
-    NSLog("Finished Loading")
-    
+  def connectionDidFinishLoading(connection)    
     self.success_callback.call(data, response)
   end
 end
