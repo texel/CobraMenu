@@ -54,6 +54,7 @@
 		7D679A5511DFBD2200A91A79 /* preferences_controller.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A5411DFBD2200A91A79 /* preferences_controller.rb */; };
 		7D679AA811DFD16900A91A79 /* ci_joe_delegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D679AA711DFD16900A91A79 /* ci_joe_delegate.rb */; };
 		7D679AD711DFF8A900A91A79 /* ns_data.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D679AD611DFF8A900A91A79 /* ns_data.rb */; };
+		7D679B1C11E0179000A91A79 /* README.rdoc in Resources */ = {isa = PBXBuildFile; fileRef = 7D679B1B11E0179000A91A79 /* README.rdoc */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -91,6 +92,7 @@
 		7D679A5411DFBD2200A91A79 /* preferences_controller.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = preferences_controller.rb; sourceTree = "<group>"; };
 		7D679AA711DFD16900A91A79 /* ci_joe_delegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ci_joe_delegate.rb; sourceTree = "<group>"; };
 		7D679AD611DFF8A900A91A79 /* ns_data.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ns_data.rb; sourceTree = "<group>"; };
+		7D679B1B11E0179000A91A79 /* README.rdoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.rdoc; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CobraMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CobraMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -180,6 +182,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7D679B1B11E0179000A91A79 /* README.rdoc */,
 				7D679A3C11DEE98900A91A79 /* inactive.png */,
 				7D679A2011DEE66E00A91A79 /* building.png */,
 				7D679A2111DEE66E00A91A79 /* failure.png */,
@@ -258,6 +261,7 @@
 				7D679A5511DFBD2200A91A79 /* preferences_controller.rb in Resources */,
 				7D679AA811DFD16900A91A79 /* ci_joe_delegate.rb in Resources */,
 				7D679AD711DFF8A900A91A79 /* ns_data.rb in Resources */,
+				7D679B1C11E0179000A91A79 /* README.rdoc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
