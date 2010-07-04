@@ -7,7 +7,10 @@
 #
 
 class ApplicationController < NSObject
-  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults
+  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer
+  
+  # TODO: Make this a preference
+  TIME_INTERVAL = 60
   
   def initialize
     super
@@ -34,7 +37,23 @@ class ApplicationController < NSObject
       s.image         = status_images[:inactive]
     end    
     
-    show_prefs_window unless defaults['url']
+    if defaults['url']
+      schedule_timer
+    else
+      show_prefs_window
+    end
+  end
+  
+  def schedule_timer
+    self.timer = NSTimer.timerWithTimeInterval TIME_INTERVAL,
+      :target   => self,
+      :selector => 'ping_ci:',
+      :userInfo => nil,
+      :repeats  => true
+      
+    NSRunLoop.currentRunLoop.addTimer timer, :forMode => NSDefaultRunLoopMode
+    
+    timer.fire
   end
   
   def show_prefs_window(sender)
@@ -43,7 +62,7 @@ class ApplicationController < NSObject
     NSApp.activateIgnoringOtherApps true
   end
   
-  def ping_ci(sender)
+  def ping_ci(sender = self)
     NSLog("No URL provided!") and return unless defaults['url']
     
     request = NSMutableURLRequest.new
@@ -52,7 +71,6 @@ class ApplicationController < NSObject
     delegate = CIJoeDelegate.new do |d|
       d.success do |data, response|
         NSLog("Status: #{response.statusCode}")
-        NSLog("Data: #{data}")
         
         data_string = data.to_s
         

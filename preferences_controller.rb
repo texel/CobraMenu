@@ -15,8 +15,12 @@ class PreferencesController < NSWindowController
     self.defaults = defaults_controller.defaults
   end
   
-  def save_prefs(sender)
+  def save_prefs(sender = self)
     defaults_controller.save self
     window.performClose self
+    
+    application_controller = NSApplication.sharedApplication.delegate
+    
+    application_controller.schedule_timer unless application_controller.timer
   end
 end
