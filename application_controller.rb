@@ -107,4 +107,9 @@ class ApplicationController < NSObject
   def update_image(name)
     status_item.image = status_images[name]
   end
+  
+  def show_about_panel(sender)
+    NSApp.orderFrontStandardAboutPanel self
+    NSApp.activateIgnoringOtherApps true
+  end
 end
