@@ -1,2 +1,5 @@
 .DS_Store
+build/*
+appcast/*
+CobraMenu.xcodeproj/*
 dsa_priv.pem
