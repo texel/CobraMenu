@@ -21,7 +21,7 @@ Instructions Forthcoming
 == TODO
   
 - Growl Notifications
-- Better Icons
+- Troubleshoot ArgumentError on startup
 
 == License
 
