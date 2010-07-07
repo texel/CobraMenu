@@ -39,7 +39,7 @@ class ApplicationController < NSObject
       s.menu          = status_menu
       s.highlightMode = true
       s.image         = status_images[:inactive]
-    end    
+    end
     
     if defaults['url'] == DEFAULT_VALUES['url']
       show_prefs_window self
