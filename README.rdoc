@@ -20,8 +20,7 @@ Instructions Forthcoming
 
 == TODO
   
-- Growl Notifications
-- Troubleshoot ArgumentError on startup
+- Multiple Projects
 
 == License
 
