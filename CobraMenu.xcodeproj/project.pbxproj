@@ -63,6 +63,7 @@
 		7D8757F411E40D61006BC6CD /* growlnotify in Resources */ = {isa = PBXBuildFile; fileRef = 7D8757F311E40D61006BC6CD /* growlnotify */; };
 		7D87580411E422BE006BC6CD /* growlnotify in Copy Executables */ = {isa = PBXBuildFile; fileRef = 7D8757F311E40D61006BC6CD /* growlnotify */; };
 		7D87580811E42D39006BC6CD /* growl_notifier.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D87580711E42D39006BC6CD /* growl_notifier.rb */; };
+		7D87585711E527D3006BC6CD /* LoginItemWraper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D87585611E527D3006BC6CD /* LoginItemWraper.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -120,6 +121,8 @@
 		7D8757B111E2CC79006BC6CD /* keyboard_handler.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = keyboard_handler.rb; sourceTree = "<group>"; };
 		7D8757F311E40D61006BC6CD /* growlnotify */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = growlnotify; path = Executables/growlnotify; sourceTree = "<group>"; };
 		7D87580711E42D39006BC6CD /* growl_notifier.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = growl_notifier.rb; sourceTree = "<group>"; };
+		7D87585511E527D3006BC6CD /* LoginItemWraper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginItemWraper.h; sourceTree = "<group>"; };
+		7D87585611E527D3006BC6CD /* LoginItemWraper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginItemWraper.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CobraMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CobraMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -146,6 +149,8 @@
 				7D679A2C11DEE6E100A91A79 /* application_controller.rb */,
 				7D8757B111E2CC79006BC6CD /* keyboard_handler.rb */,
 				7D87580711E42D39006BC6CD /* growl_notifier.rb */,
+				7D87585511E527D3006BC6CD /* LoginItemWraper.h */,
+				7D87585611E527D3006BC6CD /* LoginItemWraper.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				7D87585711E527D3006BC6CD /* LoginItemWraper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
