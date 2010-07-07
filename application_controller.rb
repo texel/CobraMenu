@@ -7,7 +7,7 @@
 #
 
 class ApplicationController < NSObject
-  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer
+  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer, :status, :last_status
   
   DEFAULT_VALUES = {
     'url'           => '',
@@ -40,17 +40,12 @@ class ApplicationController < NSObject
       s.highlightMode = true
       s.image         = status_images[:inactive]
     end    
-
+    
     if defaults['url'] == DEFAULT_VALUES['url']
-      show_prefs_window
+      show_prefs_window self
     else
       schedule_timer
     end
-  rescue ArgumentError => e
-    # This rescue is here until I can figure out what's going on with
-    # argument errors thrown on awakeFromNib with a blank url in the defaults.
-    puts 'WTF?'
-    puts e.backtrace.join '\n'
   end
   
   def schedule_timer
@@ -86,13 +81,18 @@ class ApplicationController < NSObject
         # The CI Joe ping action doesn't give us enough info to
         # figure out whether we've succeeded, are still building, or have failed.
         # Instead, we regex match the html response. Ghetto? Yes.
-        if data_string =~ /building|starting/i
-          update_image :building
-        elsif data_string =~ /worked/i
-          update_image :success
+        
+        if data_string =~ /&raquo;\s+((Build starting)|building)/i
+          self.status = :building
+        elsif data_string =~ /\(worked\)/i
+          self.status = :success
+        elsif data_string =~ /\(failed\)/
+          self.status = :failure
         else
-          update_image :failure
+          self.status = :inactive
         end
+        
+        puts 'status changed!' if status_changed?
       end
       
       d.failure do |data, error|
@@ -102,6 +102,18 @@ class ApplicationController < NSObject
     end
     
     NSURLConnection.connectionWithRequest(request, :delegate => delegate)
+  end
+  
+  def status=(new_status)
+    self.last_status = status
+    @status = new_status
+    update_image(status)
+    
+    GrowlNotifier.post_for_status status if status_changed?
+  end
+  
+  def status_changed?
+    status != last_status
   end
   
   def update_image(name)
