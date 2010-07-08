@@ -6,12 +6,26 @@
 #  Copyright (c) 2010 Onehub, Inc. All rights reserved.
 #
 
-class ApplicationController < NSObject
-  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer, :status, :last_status
+require 'observer'
+
+class ApplicationController
+  include Observer
+  
+  attr_accessor(
+    :status_item, 
+    :status_images, 
+    :status_menu, 
+    :preferences_controller, 
+    :defaults, 
+    :timer, 
+    :status, 
+    :last_status,
+  )
   
   DEFAULT_VALUES = {
     'url'           => '',
-    'ping_interval' => 60
+    'ping_interval' => 60,
+    'auto_launch'   => false
   }
   
   def initialize
@@ -35,10 +49,16 @@ class ApplicationController < NSObject
   end
     
   def awakeFromNib
+    super
+
     self.status_item = NSStatusBar.systemStatusBar.statusItemWithLength(NSSquareStatusItemLength).tap do |s|
       s.menu          = status_menu
       s.highlightMode = true
       s.image         = status_images[:inactive]
+    end
+    
+    observe defaults, :key_path => 'auto_launch' do |old_value, new_value|
+      self.auto_launch = new_value
     end
     
     if defaults['url'] == DEFAULT_VALUES['url']
@@ -58,6 +78,16 @@ class ApplicationController < NSObject
     NSRunLoop.currentRunLoop.addTimer timer, :forMode => NSDefaultRunLoopMode
         
     ping_ci self
+  end
+  
+  def auto_launch=(value)
+    puts "changing value"
+    
+    if value
+      LoginItemWrapper.addAppAsLoginItem
+    else
+      LoginItemWrapper.deleteAppFromLoginItems
+    end
   end
   
   def show_prefs_window(sender)
