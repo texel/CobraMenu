@@ -25,7 +25,8 @@ class ApplicationController
   DEFAULT_VALUES = {
     'url'           => '',
     'ping_interval' => 60,
-    'auto_launch'   => false
+    'auto_launch'   => false,
+    'sticky_notifications' => true
   }
   
   def initialize
@@ -120,14 +121,12 @@ class ApplicationController
           self.status = :failure
         else
           self.status = :inactive
-        end
-        
-        puts 'status changed!' if status_changed?
+        end        
       end
       
       d.failure do |data, error|
         NSLog("Status: #{error}")
-        update_image :inactive
+        self.status = :inactive
       end
     end
     
@@ -139,7 +138,7 @@ class ApplicationController
     @status = new_status
     update_image(status)
     
-    GrowlNotifier.post_for_status status if status_changed?
+    GrowlNotifier.post_for_status status, defaults['sticky_notifications'] if status_changed?
   end
   
   def status_changed?
