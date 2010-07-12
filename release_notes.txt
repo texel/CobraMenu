@@ -1,14 +1,14 @@
 h1. <span>2010-07-07</span> Release 0.2.1
 
-h2. Added the ability to set as a login item
+Added the ability to set as a login item
 
-h2. Growl notifications can be made un-sticky
+Growl notifications can be made un-sticky
 
 h1. <span>2010-07-07</span> Release 0.2
 
-h2. More Stable
+More Stable
 
-h2. Growl notifications!
+Growl notifications!
 
 h1. <span>2010-07-05</span> Release 0.1.1
 

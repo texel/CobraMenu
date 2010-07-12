@@ -23,10 +23,10 @@ class ApplicationController
   )
   
   DEFAULT_VALUES = {
-    'url'           => '',
-    'ping_interval' => 60,
-    'auto_launch'   => false,
-    'sticky_notifications' => true
+    'url'                   => '',
+    'ping_interval'         => 60,
+    'auto_launch'           => false,
+    'sticky_notifications'  => true
   }
   
   def initialize
@@ -98,12 +98,7 @@ class ApplicationController
   end
   
   def ping_ci(sender)
-    NSLog("No URL provided!") and return unless defaults['url']
-    
-    request = NSMutableURLRequest.new
-    request.URL = NSURL.URLWithString defaults['url']
-    
-    delegate = CIJoeDelegate.new do |d|
+    CIJoeProject.get do |d|
       d.success do |data, response|
         NSLog("Status: #{response.statusCode}")
         
@@ -128,9 +123,12 @@ class ApplicationController
         NSLog("Status: #{error}")
         self.status = :inactive
       end
-    end
-    
-    NSURLConnection.connectionWithRequest(request, :delegate => delegate)
+    end    
+  end
+  
+  def trigger_build(sender)
+    CIJoeProject.post
+    ping_ci(self)
   end
   
   def status=(new_status)
