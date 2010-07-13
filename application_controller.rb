@@ -10,18 +10,9 @@ require 'observer'
 
 class ApplicationController
   include Observer
-  
-  attr_accessor(
-    :status_item, 
-    :status_images, 
-    :status_menu, 
-    :preferences_controller, 
-    :defaults, 
-    :timer, 
-    :status, 
-    :last_status,
-  )
-  
+
+  attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer, :status, :last_status
+    
   DEFAULT_VALUES = {
     'url'                   => '',
     'ping_interval'         => 60,
@@ -51,6 +42,9 @@ class ApplicationController
     
   def awakeFromNib
     super
+    
+    # Register super awesome value transformer
+    NSValueTransformer.setValueTransformer(NotBlankValueTransformer.new, forName: 'NotBlankValueTransformer')
 
     self.status_item = NSStatusBar.systemStatusBar.statusItemWithLength(NSSquareStatusItemLength).tap do |s|
       s.menu          = status_menu
@@ -129,6 +123,10 @@ class ApplicationController
   def trigger_build(sender)
     CIJoeProject.post
     ping_ci(self)
+  end
+  
+  def open_in_browser(sender)
+    NSWorkspace.sharedWorkspace.openURL NSURL.URLWithString(defaults['url'])
   end
   
   def status=(new_status)

@@ -12,8 +12,8 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="377"/>
 			<integer value="386"/>
+			<integer value="377"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -63,6 +63,14 @@
 					<object class="NSMenuItem" id="556961740">
 						<reference key="NSMenu" ref="23650570"/>
 						<string key="NSTitle">Build</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="50430149"/>
+						<reference key="NSMixedImage" ref="412916903"/>
+					</object>
+					<object class="NSMenuItem" id="210265092">
+						<reference key="NSMenu" ref="23650570"/>
+						<string key="NSTitle">View In Browser</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="50430149"/>
@@ -303,6 +311,10 @@
 				<string key="NSClassName">SUUpdater</string>
 			</object>
 			<object class="NSUserDefaultsController" id="711245481">
+				<object class="NSMutableArray" key="NSDeclaredKeys">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+					<string>url</string>
+				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</object>
@@ -465,6 +477,34 @@
 					</object>
 					<int key="connectionID">704</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">open_in_browser:</string>
+						<reference key="source" ref="270650201"/>
+						<reference key="destination" ref="210265092"/>
+					</object>
+					<int key="connectionID">706</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: values.url</string>
+						<reference key="source" ref="210265092"/>
+						<reference key="destination" ref="711245481"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="210265092"/>
+							<reference key="NSDestination" ref="711245481"/>
+							<string key="NSLabel">enabled: values.url</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">values.url</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NotBlankValueTransformer</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">710</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -510,6 +550,7 @@
 							<reference ref="2809942"/>
 							<reference ref="277148204"/>
 							<reference ref="556961740"/>
+							<reference ref="210265092"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -676,6 +717,11 @@
 						<reference key="object" ref="556961740"/>
 						<reference key="parent" ref="23650570"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">705</int>
+						<reference key="object" ref="210265092"/>
+						<reference key="parent" ref="23650570"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -713,20 +759,22 @@
 					<string>697.IBPluginDependency</string>
 					<string>698.IBPluginDependency</string>
 					<string>703.IBPluginDependency</string>
+					<string>705.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{376, 673}, {193, 133}}</string>
+					<string>{{449, 653}, {193, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{810, 354}, {381, 138}}</string>
+					<string>{{546, 354}, {381, 138}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{810, 354}, {381, 138}}</string>
+					<string>{{546, 354}, {381, 138}}</string>
 					<boolean value="NO"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -765,7 +813,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">704</int>
+			<int key="maxID">710</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -777,6 +825,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>open_in_browser:</string>
 							<string>ping_ci:</string>
 							<string>show_about_panel:</string>
 							<string>show_prefs_window:</string>
@@ -784,6 +833,32 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>defaults</string>
+							<string>last_status</string>
+							<string>preferences_controller</string>
+							<string>status</string>
+							<string>status_images</string>
+							<string>status_item</string>
+							<string>status_menu</string>
+							<string>timer</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
