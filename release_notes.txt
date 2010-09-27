@@ -1,3 +1,7 @@
+h1. <span>2010-09-27</span> Release 0.4
+
+Now using /ping. Memory footprint should be better. Be sure to update cijoe to 0.7.0
+
 h1. <span>2010-07-13</span> Release 0.3
 
 Build from the menu

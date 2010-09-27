@@ -32,10 +32,10 @@ class CIJoeDelegate
   
   def connection(connection, didFailWithError:error)
     self.error = error
-    failure_callback.call(data, error)
+    failure_callback.call(data, error) if failure_callback
   end
   
   def connectionDidFinishLoading(connection)    
-    self.success_callback.call(data, response)
+    success_callback.call(data, response) if success_callback
   end
 end

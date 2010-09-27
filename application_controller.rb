@@ -92,29 +92,25 @@ class ApplicationController
   end
   
   def ping_ci(sender)
-    CIJoeProject.get do |d|
+    CIJoeProject.get('ping') do |d|
       d.success do |data, response|
         NSLog("Status: #{response.statusCode}")
         
-        data_string = data.to_s
-        
-        # The CI Joe ping action doesn't give us enough info to
-        # figure out whether we've succeeded, are still building, or have failed.
-        # Instead, we regex match the html response. Ghetto? Yes.
-        
-        if data_string =~ /&raquo;\s+((Build starting)|building)/i
-          self.status = :building
-        elsif data_string =~ /\(worked\)/i
-          self.status = :success
-        elsif data_string =~ /\(failed\)/
-          self.status = :failure
-        else
-          self.status = :inactive
-        end        
+        case response.statusCode
+        when 200
+        	self.status = :success
+        when 412
+          if data.to_s == 'building'
+          	self.status = :building
+          else
+          	self.status = :failure
+          end
+        end
       end
       
       d.failure do |data, error|
         NSLog("Status: #{error}")
+        
         self.status = :inactive
       end
     end    

@@ -12,11 +12,11 @@ class CIJoeProject
     @defaults ||= NSUserDefaultsController.sharedUserDefaultsController.defaults
   end
   
-  def self.request(verb, &block)
+  def self.request(verb, path = '', &block)
     raise "No URL Specified" unless defaults['url']
     
     request = NSMutableURLRequest.new
-    request.URL = NSURL.URLWithString defaults['url']
+    request.URL = NSURL.URLWithString "#{defaults['url']}/#{path}"
     request.HTTPMethod = verb.to_s.upcase
     
     delegate = CIJoeDelegate.new(&block)
@@ -26,8 +26,8 @@ class CIJoeProject
   
   %w(get post put delete).each do |verb|
     class_eval %Q{
-      def self.#{verb}(&block)
-        self.request(:#{verb}, &block)
+      def self.#{verb}(path = '', &block)
+        self.request(:#{verb}, path, &block)
       end
     }
   end
