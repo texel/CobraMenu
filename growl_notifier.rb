@@ -7,12 +7,13 @@
 #
 
 module GrowlNotifier
-  GROWL_PATH = NSBundle.mainBundle.pathForResource('growlnotify', :ofType => '')
-  
+  GROWL_PATH = NSBundle.mainBundle.pathForResource('growlnotify', :ofType => '') 
+
   def self.post(title, body, sticky)
-    `"#{GROWL_PATH}" -H localhost #{"-s" if sticky} -n "CobraMenu" -d "CobraMenu" -t #{title} -m "#{body}"`
+    cmd = "#{GROWL_PATH} #{'-s' if sticky} -n CobraMenu -d CobraMenu -t #{title} -m #{body}"
+    system(cmd)
   end
-  
+
   def self.post_for_status(status, sticky)
     status_map = {
       :success  => 'Succeeded',
@@ -20,7 +21,7 @@ module GrowlNotifier
       :building => 'In Progress',
       :inactive => 'Unavailable'
     }
-    
+
     post('CobraMenu', "Build #{status_map[status]}", sticky)
   end
 end
