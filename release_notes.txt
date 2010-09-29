@@ -1,3 +1,7 @@
+h1. <span>2010-09-28</span> Release 0.4.1
+
+Fixed a potential bug with growlnotify (thanks to <a href="http://github.com/imajes">James Cox</a>)
+
 h1. <span>2010-09-27</span> Release 0.4
 
 Now using /ping. Memory footprint should be better. Be sure to update cijoe to 0.7.0

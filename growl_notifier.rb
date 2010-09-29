@@ -10,7 +10,7 @@ module GrowlNotifier
   GROWL_PATH = NSBundle.mainBundle.pathForResource('growlnotify', :ofType => '') 
 
   def self.post(title, body, sticky)
-    cmd = "#{GROWL_PATH} #{'-s' if sticky} -n CobraMenu -d CobraMenu -t #{title} -m #{body}"
+    cmd = "\"#{GROWL_PATH}\" #{'-s' if sticky} -n CobraMenu -d CobraMenu -t #{title} -m #{body}"
     system(cmd)
   end
 
