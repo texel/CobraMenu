@@ -15,13 +15,14 @@ class CIJoeProject
   def self.request(verb, path = '', &block)
     raise "No URL Specified" unless defaults['url']
     
-    request = NSMutableURLRequest.new
-    request.URL = NSURL.URLWithString "#{defaults['url']}/#{path}"
-    request.HTTPMethod = verb.to_s.upcase
+    request = NSMutableURLRequest.new.tap do |r|
+      r.URL        = NSURL.URLWithString "#{defaults['url']}/#{path}"
+      r.HTTPMethod = verb.to_s.upcase
+    end
     
     delegate = CIJoeDelegate.new(&block)
     
-     NSURLConnection.connectionWithRequest(request, :delegate => delegate)
+    NSURLConnection.connectionWithRequest(request, :delegate => delegate)
   end
   
   %w(get post put delete).each do |verb|
