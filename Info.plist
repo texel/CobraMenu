@@ -20,12 +20,14 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>0.4.1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.developer-tools</string>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>LSUIElement</key>
-	<true/>
 	<key>SUFeedURL</key>
 	<string>http://dl.cobramenu.onehub.com/cobramenu.xml</string>
 	<key>SUPublicDSAKeyFile</key>

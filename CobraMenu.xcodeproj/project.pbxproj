@@ -46,6 +46,7 @@
 		2BFA9DA710CDF852007972A1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BFA9DA510CDF852007972A1 /* MainMenu.xib */; };
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
 		4DE3BE140D8651D900ECA448 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3BE130D8651D900ECA448 /* MacRuby.framework */; };
+		7D2C9167133BDA9C0046411A /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D2C9166133BDA9C0046411A /* AppDelegate.rb */; };
 		7D679A2311DEE66E00A91A79 /* building.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2011DEE66E00A91A79 /* building.png */; };
 		7D679A2411DEE66E00A91A79 /* failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2111DEE66E00A91A79 /* failure.png */; };
 		7D679A2511DEE66E00A91A79 /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2211DEE66E00A91A79 /* success.png */; };
@@ -66,6 +67,7 @@
 		7D87585711E527D3006BC6CD /* LoginItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D87585611E527D3006BC6CD /* LoginItemWrapper.m */; };
 		7D9F8E3411E568B600CEAE8C /* observer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D9F8E3311E568B600CEAE8C /* observer.rb */; };
 		7DA8450E11ECD6F9000E30F8 /* not_blank_value_transformer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */; };
+		7DACF1021351056500F690A5 /* CobraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */; };
 		7DE33F7611EB8504003743C6 /* ci_joe_project.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DE33F7511EB8504003743C6 /* ci_joe_project.rb */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -109,6 +111,7 @@
 		2BFA9DA610CDF852007972A1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		4DE339F60D74FCDD00ADB6EE /* rb_main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		4DE3BE130D8651D900ECA448 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
+		7D2C9166133BDA9C0046411A /* AppDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
 		7D679A2011DEE66E00A91A79 /* building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = building.png; path = Images/building.png; sourceTree = "<group>"; };
 		7D679A2111DEE66E00A91A79 /* failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = failure.png; path = Images/failure.png; sourceTree = "<group>"; };
 		7D679A2211DEE66E00A91A79 /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = success.png; path = Images/success.png; sourceTree = "<group>"; };
@@ -128,6 +131,7 @@
 		7D87585611E527D3006BC6CD /* LoginItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginItemWrapper.m; sourceTree = "<group>"; };
 		7D9F8E3311E568B600CEAE8C /* observer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = observer.rb; sourceTree = "<group>"; };
 		7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = not_blank_value_transformer.rb; sourceTree = "<group>"; };
+		7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CobraModel.xcdatamodel; sourceTree = "<group>"; };
 		7DE33F7511EB8504003743C6 /* ci_joe_project.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ci_joe_project.rb; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CobraMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CobraMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +163,7 @@
 				7D87585611E527D3006BC6CD /* LoginItemWrapper.m */,
 				7DE33F7511EB8504003743C6 /* ci_joe_project.rb */,
 				7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */,
+				7D2C9166133BDA9C0046411A /* AppDelegate.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				7D9F8E3311E568B600CEAE8C /* observer.rb */,
+				7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -289,7 +295,11 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "CobraMenu" */;
 			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CobraMenu */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -327,6 +337,7 @@
 				7D9F8E3411E568B600CEAE8C /* observer.rb in Resources */,
 				7DE33F7611EB8504003743C6 /* ci_joe_project.rb in Resources */,
 				7DA8450E11ECD6F9000E30F8 /* not_blank_value_transformer.rb in Resources */,
+				7D2C9167133BDA9C0046411A /* AppDelegate.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +392,7 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				7D87585711E527D3006BC6CD /* LoginItemWrapper.m in Sources */,
+				7DACF1021351056500F690A5 /* CobraModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +425,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -423,6 +436,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -434,6 +448,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = Compile;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -444,6 +459,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = Compile;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -455,6 +471,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = Embed;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 			};
 			name = Debug;
 		};
@@ -465,6 +482,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = Embed;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -486,7 +504,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = CobraMenu;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
 			};
@@ -506,7 +526,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = CobraMenu;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -518,6 +540,7 @@
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				VALID_ARCHS = "i386 x86_64";
@@ -531,6 +554,7 @@
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
 				VALID_ARCHS = "i386 x86_64";
@@ -586,6 +610,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */,
+			);
+			currentVersion = 7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */;
+			path = CobraModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }

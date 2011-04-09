@@ -15,7 +15,7 @@ module Observer
     
     observed_objects[object][key] = block
     
-    object.addObserver self, forKeyPath:key, options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld), context:nil
+    object.addObserver self, forKeyPath: key, options: (NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld), context: nil
   end
   
   # observe defaults, :key_path => 'auto_launch' do |old_value, new_value|

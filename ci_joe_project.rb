@@ -6,7 +6,7 @@
 #  Copyright (c) 2010 Onehub, Inc. All rights reserved.
 #
 
-class CIJoeProject
+class CIJoeProject < NSManagedObject
   
   def self.defaults
     @defaults ||= NSUserDefaultsController.sharedUserDefaultsController.defaults

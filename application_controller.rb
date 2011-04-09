@@ -31,7 +31,7 @@ class ApplicationController
     defaults.registerDefaults(DEFAULT_VALUES)
             
     bundle = NSBundle.mainBundle
-    
+      
     self.status_images = {}
     
     %w(inactive building failure success).each do |status|
