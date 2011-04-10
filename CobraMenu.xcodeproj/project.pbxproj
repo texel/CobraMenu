@@ -132,6 +132,8 @@
 		7D9F8E3311E568B600CEAE8C /* observer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = observer.rb; sourceTree = "<group>"; };
 		7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = not_blank_value_transformer.rb; sourceTree = "<group>"; };
 		7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CobraModel.xcdatamodel; sourceTree = "<group>"; };
+		7DACF1131351347300F690A5 /* CobraModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		7DACF1141351434300F690A5 /* CobraModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		7DE33F7511EB8504003743C6 /* ci_joe_project.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ci_joe_project.rb; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CobraMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CobraMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -615,9 +617,11 @@
 		7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7DACF1131351347300F690A5 /* CobraModel 2.xcdatamodel */,
+				7DACF1141351434300F690A5 /* CobraModel 3.xcdatamodel */,
 				7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */,
 			);
-			currentVersion = 7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */;
+			currentVersion = 7DACF1131351347300F690A5 /* CobraModel 2.xcdatamodel */;
 			path = CobraModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

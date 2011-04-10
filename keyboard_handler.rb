@@ -17,11 +17,15 @@ class KeyboardHandler <  NSView
   end
 
   def performKeyEquivalent(event)
-    action_map = {'x' => 'cut', 'c' => 'copy', 'v' => 'paste', 'a' => 'selectAll'}
+    action_map = {'x' => 'cut', 'c' => 'copy', 'v' => 'paste', 'a' => 'selectAll', 'q' => 'terminate'}
     
     if (event.modifierFlags & NSDeviceIndependentModifierFlagsMask) == NSCommandKeyMask
       if action = action_map[event.charactersIgnoringModifiers]
-        NSApp.sendAction("#{action}:", :to => self.window.firstResponder(), :from => self)
+        if window.firstResponder.respond_to?(action)
+          NSApp.sendAction("#{action}:", :to => self.window.firstResponder(), :from => self)
+        else
+          NSApp.send("#{action}", self)
+        end
       end
     else
       super

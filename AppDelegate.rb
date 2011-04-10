@@ -5,14 +5,16 @@
 # Copyright 2011 Onehub, Inc. All rights reserved.
 
 class AppDelegate
+  attr_accessor :managedObjectContext
+  
   # Returns the support folder for the application, used to store the Core Data
-  # store file.  This code uses a folder named "RubyCoreData" for
+  # store file.  This code uses a folder named "CobraMenu" for
   # the content, either in the NSApplicationSupportDirectory location or (if the
   # former cannot be found), the system's temporary directory.
   def applicationSupportFolder
     paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, true)
     basePath = paths[0] || NSTemporaryDirectory()
-    basePath.stringByAppendingPathComponent("RubyCoreData")
+    basePath.stringByAppendingPathComponent("CobraMenu")
   end
 
   # Creates and returns the managed object model for the application 
@@ -32,14 +34,15 @@ class AppDelegate
     
       fileManager = NSFileManager.defaultManager
       applicationSupportFolder = self.applicationSupportFolder
+      options = {NSMigratePersistentStoresAutomaticallyOption: true}
     
       unless fileManager.fileExistsAtPath(applicationSupportFolder, isDirectory:nil)
         fileManager.createDirectoryAtPath(applicationSupportFolder, attributes:nil)
       end
     
-      url = NSURL.fileURLWithPath(applicationSupportFolder.stringByAppendingPathComponent("RubyCoreData.xml"))
+      url = NSURL.fileURLWithPath(applicationSupportFolder.stringByAppendingPathComponent("CobraMenu.xml"))
       @persistentStoreCoordinator = NSPersistentStoreCoordinator.alloc.initWithManagedObjectModel(self.managedObjectModel)
-      unless @persistentStoreCoordinator.addPersistentStoreWithType(NSXMLStoreType, configuration:nil, URL:url, options:nil, error:error)
+      unless @persistentStoreCoordinator.addPersistentStoreWithType(NSXMLStoreType, configuration:nil, URL:url, options:options, error:error)
         NSApplication.sharedApplication.presentError(error[0])
       end
     end

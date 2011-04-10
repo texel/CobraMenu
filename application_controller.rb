@@ -23,8 +23,8 @@ class ApplicationController
   def initialize
     super
     
-    # We don't want changes to prefs to apply immediately
-    NSUserDefaultsController.sharedUserDefaultsController.appliesImmediately = false
+    # We want changes to prefs to apply immediately
+    NSUserDefaultsController.sharedUserDefaultsController.appliesImmediately = true
     
     self.defaults = NSUserDefaults.standardUserDefaults
     
