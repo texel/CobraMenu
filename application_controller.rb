@@ -12,7 +12,7 @@ class ApplicationController
   include Observer
 
   attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer, :status, :last_status
-  attr_accessor :projects_window, :projects_controller, :app_delegate
+  attr_accessor :projects_window, :projects_controller, :app_delegate, :uri_schemes
     
   DEFAULT_VALUES = {
     'url'                   => '',
@@ -72,6 +72,8 @@ class ApplicationController
     end
     
     observe projects_controller, :key_path => 'arrangedObjects.enabled' { project_updated! }
+    
+    self.uri_schemes = %w(http:// https://) # Yes, I'm aware of how ghetto this is.
   end
     
   def schedule_timer    

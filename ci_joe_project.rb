@@ -120,9 +120,14 @@ class CIJoeProject < NSManagedObject
     self.setValue new_status, forKey: 'status'
   end
 
-
   def open_in_browser(sender)
     NSWorkspace.sharedWorkspace.openURL NSURL.URLWithString(full_url)
+  end
+
+  def trigger_build(sender)
+    post do |req|
+      req.success { update! self }
+    end
   end
 
   def validateUserInterfaceItem(item)

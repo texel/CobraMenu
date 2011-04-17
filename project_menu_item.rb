@@ -19,16 +19,18 @@ class ProjectMenuItem < NSMenuItem
     self.status = project.status
     
     # Build up a new submenu
-    update = NSMenuItem.alloc.initWithTitle 'Update', action: 'update!:', keyEquivalent: ''
-    view   = NSMenuItem.alloc.initWithTitle 'View In Browser', action: 'open_in_browser:', keyEquivalent: ''
+    submenu = []
+    
+    submenu << NSMenuItem.alloc.initWithTitle('Update', action: 'update!:', keyEquivalent: '')
+    submenu << NSMenuItem.alloc.initWithTitle('Build', action: 'trigger_build:', keyEquivalent: '')
+    submenu << NSMenuItem.alloc.initWithTitle('View In Browser', action: 'open_in_browser:', keyEquivalent: '')
     
     menu   = NSMenu.new.tap { |m| m.autoenablesItems = false }
     
-    update.target = project
-    view.target   = project
-        
-    menu.insertItem update, atIndex: 0
-    menu.insertItem view, atIndex: 1
+    submenu.each_with_index do |item, i|
+      item.target = project
+      menu.insertItem item, atIndex: i
+    end
     
     self.setSubmenu menu
     self.hidden = !project.enabled?
