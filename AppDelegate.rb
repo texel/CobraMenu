@@ -34,7 +34,8 @@ class AppDelegate
     
       fileManager = NSFileManager.defaultManager
       applicationSupportFolder = self.applicationSupportFolder
-      options = {NSMigratePersistentStoresAutomaticallyOption: true}
+      
+      options = {NSMigratePersistentStoresAutomaticallyOption => true}
     
       unless fileManager.fileExistsAtPath(applicationSupportFolder, isDirectory:nil)
         fileManager.createDirectoryAtPath(applicationSupportFolder, attributes:nil)

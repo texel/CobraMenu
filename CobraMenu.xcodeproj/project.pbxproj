@@ -47,6 +47,10 @@
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
 		4DE3BE140D8651D900ECA448 /* MacRuby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3BE130D8651D900ECA448 /* MacRuby.framework */; };
 		7D2C9167133BDA9C0046411A /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D2C9166133BDA9C0046411A /* AppDelegate.rb */; };
+		7D4689AD13527D8C003EE3F1 /* v1_to_v2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7D4689AC13527D8B003EE3F1 /* v1_to_v2.xcmappingmodel */; };
+		7D4689B113527DED003EE3F1 /* v2_to_v3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7D4689B013527DED003EE3F1 /* v2_to_v3.xcmappingmodel */; };
+		7D5280A013569DEE0027FAF1 /* project_menu_item.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D52809F13569DEE0027FAF1 /* project_menu_item.rb */; };
+		7D62E24513536AF5007D8DC6 /* v3_to_v4.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7D62E24413536AF5007D8DC6 /* v3_to_v4.xcmappingmodel */; };
 		7D679A2311DEE66E00A91A79 /* building.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2011DEE66E00A91A79 /* building.png */; };
 		7D679A2411DEE66E00A91A79 /* failure.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2111DEE66E00A91A79 /* failure.png */; };
 		7D679A2511DEE66E00A91A79 /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D679A2211DEE66E00A91A79 /* success.png */; };
@@ -69,6 +73,7 @@
 		7DA8450E11ECD6F9000E30F8 /* not_blank_value_transformer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */; };
 		7DACF1021351056500F690A5 /* CobraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */; };
 		7DE33F7611EB8504003743C6 /* ci_joe_project.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DE33F7511EB8504003743C6 /* ci_joe_project.rb */; };
+		7DECEF5C135652AA00B9FCD5 /* blank_value_transformer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DECEF5B135652AA00B9FCD5 /* blank_value_transformer.rb */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -112,6 +117,10 @@
 		4DE339F60D74FCDD00ADB6EE /* rb_main.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
 		4DE3BE130D8651D900ECA448 /* MacRuby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MacRuby.framework; path = /Library/Frameworks/MacRuby.framework; sourceTree = "<absolute>"; };
 		7D2C9166133BDA9C0046411A /* AppDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+		7D4689AC13527D8B003EE3F1 /* v1_to_v2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = v1_to_v2.xcmappingmodel; path = CobraModel.xcdatamodeld/v1_to_v2.xcmappingmodel; sourceTree = "<group>"; };
+		7D4689B013527DED003EE3F1 /* v2_to_v3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = v2_to_v3.xcmappingmodel; sourceTree = "<group>"; };
+		7D52809F13569DEE0027FAF1 /* project_menu_item.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = project_menu_item.rb; sourceTree = "<group>"; };
+		7D62E24413536AF5007D8DC6 /* v3_to_v4.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = v3_to_v4.xcmappingmodel; path = CobraMenu.xcodeproj/v3_to_v4.xcmappingmodel; sourceTree = "<group>"; };
 		7D679A2011DEE66E00A91A79 /* building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = building.png; path = Images/building.png; sourceTree = "<group>"; };
 		7D679A2111DEE66E00A91A79 /* failure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = failure.png; path = Images/failure.png; sourceTree = "<group>"; };
 		7D679A2211DEE66E00A91A79 /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = success.png; path = Images/success.png; sourceTree = "<group>"; };
@@ -134,7 +143,9 @@
 		7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CobraModel.xcdatamodel; sourceTree = "<group>"; };
 		7DACF1131351347300F690A5 /* CobraModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		7DACF1141351434300F690A5 /* CobraModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 3.xcdatamodel"; sourceTree = "<group>"; };
+		7DD6047513536776002EFE8C /* CobraModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 4.xcdatamodel"; sourceTree = "<group>"; };
 		7DE33F7511EB8504003743C6 /* ci_joe_project.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ci_joe_project.rb; sourceTree = "<group>"; };
+		7DECEF5B135652AA00B9FCD5 /* blank_value_transformer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = blank_value_transformer.rb; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* CobraMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CobraMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -159,12 +170,14 @@
 				7D679AA711DFD16900A91A79 /* ci_joe_delegate.rb */,
 				7D679A5411DFBD2200A91A79 /* preferences_controller.rb */,
 				7D679A2C11DEE6E100A91A79 /* application_controller.rb */,
+				7D52809F13569DEE0027FAF1 /* project_menu_item.rb */,
 				7D8757B111E2CC79006BC6CD /* keyboard_handler.rb */,
 				7D87580711E42D39006BC6CD /* growl_notifier.rb */,
 				7D87585511E527D3006BC6CD /* LoginItemWrapper.h */,
 				7D87585611E527D3006BC6CD /* LoginItemWrapper.m */,
 				7DE33F7511EB8504003743C6 /* ci_joe_project.rb */,
 				7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */,
+				7DECEF5B135652AA00B9FCD5 /* blank_value_transformer.rb */,
 				7D2C9166133BDA9C0046411A /* AppDelegate.rb */,
 			);
 			name = Classes;
@@ -210,6 +223,7 @@
 		29B97314FDCFA39411CA2CEA /* CobraMenu */ = {
 			isa = PBXGroup;
 			children = (
+				7D4689AE13527D9B003EE3F1 /* Data Model */,
 				7D9F8E3211E5689F00CEAE8C /* Modules */,
 				172754AE1075979200D0347B /* Tests */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -258,11 +272,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7D4689AE13527D9B003EE3F1 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D4689AF13527DC4003EE3F1 /* Migrations */,
+				7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		7D4689AF13527DC4003EE3F1 /* Migrations */ = {
+			isa = PBXGroup;
+			children = (
+				7D4689AC13527D8B003EE3F1 /* v1_to_v2.xcmappingmodel */,
+				7D4689B013527DED003EE3F1 /* v2_to_v3.xcmappingmodel */,
+				7D62E24413536AF5007D8DC6 /* v3_to_v4.xcmappingmodel */,
+			);
+			name = Migrations;
+			sourceTree = "<group>";
+		};
 		7D9F8E3211E5689F00CEAE8C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				7D9F8E3311E568B600CEAE8C /* observer.rb */,
-				7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -340,6 +372,8 @@
 				7DE33F7611EB8504003743C6 /* ci_joe_project.rb in Resources */,
 				7DA8450E11ECD6F9000E30F8 /* not_blank_value_transformer.rb in Resources */,
 				7D2C9167133BDA9C0046411A /* AppDelegate.rb in Resources */,
+				7DECEF5C135652AA00B9FCD5 /* blank_value_transformer.rb in Resources */,
+				7D5280A013569DEE0027FAF1 /* project_menu_item.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +429,9 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				7D87585711E527D3006BC6CD /* LoginItemWrapper.m in Sources */,
 				7DACF1021351056500F690A5 /* CobraModel.xcdatamodeld in Sources */,
+				7D4689AD13527D8C003EE3F1 /* v1_to_v2.xcmappingmodel in Sources */,
+				7D4689B113527DED003EE3F1 /* v2_to_v3.xcmappingmodel in Sources */,
+				7D62E24513536AF5007D8DC6 /* v3_to_v4.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,9 +656,10 @@
 			children = (
 				7DACF1131351347300F690A5 /* CobraModel 2.xcdatamodel */,
 				7DACF1141351434300F690A5 /* CobraModel 3.xcdatamodel */,
+				7DD6047513536776002EFE8C /* CobraModel 4.xcdatamodel */,
 				7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */,
 			);
-			currentVersion = 7DACF1131351347300F690A5 /* CobraModel 2.xcdatamodel */;
+			currentVersion = 7DD6047513536776002EFE8C /* CobraModel 4.xcdatamodel */;
 			path = CobraModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

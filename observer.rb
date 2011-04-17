@@ -11,9 +11,9 @@ module Observer
     
     self.observed_objects ||= {}
     
-    observed_objects[object] ||= {}
+    observed_objects[object.object_id] ||= {}
     
-    observed_objects[object][key] = block
+    observed_objects[object.object_id][key] = block
     
     object.addObserver self, forKeyPath: key, options: (NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld), context: nil
   end
@@ -23,7 +23,7 @@ module Observer
   # end
     
   def observeValueForKeyPath(keyPath, ofObject:object, change:change, context:context)    
-    if info = observed_objects[object]
+    if info = observed_objects[object.object_id]
       info.each do |key, proc|        
         if key == keyPath
           instance_exec(change[NSKeyValueChangeOldKey], change[NSKeyValueChangeNewKey], &proc) 

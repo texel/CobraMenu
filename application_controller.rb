@@ -12,6 +12,7 @@ class ApplicationController
   include Observer
 
   attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer, :status, :last_status
+  attr_accessor :projects_window, :projects_controller, :app_delegate
     
   DEFAULT_VALUES = {
     'url'                   => '',
@@ -19,6 +20,13 @@ class ApplicationController
     'auto_launch'           => false,
     'sticky_notifications'  => true
   }
+  
+  STATUS_IMAGES = {}.tap do |h|
+    %w(inactive building failure success).each do |status|
+      image = NSImage.new.initWithContentsOfFile(NSBundle.mainBundle.pathForResource(status, :ofType => 'png'))
+      h[:"#{status}"] = image
+    end
+  end
   
   def initialize
     super
@@ -32,19 +40,14 @@ class ApplicationController
             
     bundle = NSBundle.mainBundle
       
-    self.status_images = {}
-    
-    %w(inactive building failure success).each do |status|
-      image = NSImage.new.initWithContentsOfFile(bundle.pathForResource(status, :ofType => 'png'))
-      status_images[:"#{status}"] = image
-    end
+    self.status_images = STATUS_IMAGES
   end
     
   def awakeFromNib
     super
-    
+        
     # Register super awesome value transformer
-    NSValueTransformer.setValueTransformer(NotBlankValueTransformer.new, forName: 'NotBlankValueTransformer')
+    NSValueTransformer.setValueTransformer(NotBlankValueTransformer.new, :forName => 'NotBlankValueTransformer')
 
     self.status_item = NSStatusBar.systemStatusBar.statusItemWithLength(NSSquareStatusItemLength).tap do |s|
       s.menu          = status_menu
@@ -56,14 +59,30 @@ class ApplicationController
       self.auto_launch = new_value
     end
     
-    if defaults['url'] == DEFAULT_VALUES['url']
-      show_prefs_window self
-    else
-      schedule_timer
+    observe projects_controller, :key_path => 'content' do
+      self.timer || schedule_timer
+    end
+    
+    observe projects_controller, :key_path => 'arrangedObjects' do |old, new|
+      puts "got arrangedObjects notification!"
+    end
+    
+    observe projects_controller, :key_path => 'arrangedObjects.status' do |old, new|
+      project_updated!
     end
   end
   
+  def setup_menu
+    all_projects.reverse.each do |project|
+      menu     = ProjectMenuItem.alloc.init_with_project project
+      
+      status_menu.insertItem menu, atIndex: 0
+    end
+  end
+    
   def schedule_timer
+    setup_menu
+    
     self.timer = NSTimer.timerWithTimeInterval defaults['ping_interval'],
       :target   => self,
       :selector => 'ping_ci:',
@@ -91,38 +110,44 @@ class ApplicationController
     NSApp.activateIgnoringOtherApps true
   end
   
+  def show_projects_window(sender)
+    self.projects_window.makeKeyAndOrderFront self
+    NSApp.activateIgnoringOtherApps true
+  end
+  
+  def all_projects
+    projects_controller.arrangedObjects
+  end
+  
   def ping_ci(sender)
-    CIJoeProject.get('ping') do |d|
-      d.success do |data, response|
-        NSLog("Status: #{response.statusCode}")
-        
-        case response.statusCode
-        when 200
-        	self.status = :success
-        when 412
-          if data.to_s == 'building'
-          	self.status = :building
-          else
-          	self.status = :failure
-          end
-        end
-      end
+    NSLog("Pinging CI")
+    
+    all_projects.each do |project|
+      NSLog("updating project:")
+      NSLog(project.description)
       
-      d.failure do |data, error|
-        NSLog("Status: #{error}")
+      project.update! self
+    end
+  end
+  
+  def project_updated!
+    projects = all_projects
         
-        self.status = :inactive
+    self.status =
+      if projects.all? { |p| p.status.to_s == 'success' }
+        :success
+      elsif projects.any? { |p| p.status.to_s == 'failure' }
+        :failure
+      elsif projects.any? { |p| p.status.to_s == 'building' }
+        :building
+      else
+        :inactive
       end
-    end    
   end
   
   def trigger_build(sender)
     CIJoeProject.post
     ping_ci(self)
-  end
-  
-  def open_in_browser(sender)
-    NSWorkspace.sharedWorkspace.openURL NSURL.URLWithString(defaults['url'])
   end
   
   def status=(new_status)

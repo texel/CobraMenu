@@ -7,7 +7,7 @@
 #
 
 class CIJoeDelegate
-  attr_accessor :data, :response, :error, :delegate, :success_callback, :failure_callback
+  attr_accessor :data, :response, :error, :delegate, :success_callback, :failure_callback, :complete_callback
   
   def initialize(&block)
     self.data = NSMutableData.new
@@ -22,6 +22,10 @@ class CIJoeDelegate
     self.failure_callback = block
   end
   
+  def complete(&block)
+    self.complete_callback = block
+  end
+  
   def connection(connection, didReceiveData:data)
     self.data.appendData data
   end
@@ -33,9 +37,11 @@ class CIJoeDelegate
   def connection(connection, didFailWithError:error)
     self.error = error
     failure_callback.call(data, error) if failure_callback
+    complete_callback.call if complete_callback
   end
   
   def connectionDidFinishLoading(connection)    
     success_callback.call(data, response) if success_callback
+    complete_callback.call if complete_callback
   end
 end
