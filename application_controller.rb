@@ -64,25 +64,17 @@ class ApplicationController
     end
     
     observe projects_controller, :key_path => 'arrangedObjects' do |old, new|
-      puts "got arrangedObjects notification!"
+      project_updated!
     end
     
     observe projects_controller, :key_path => 'arrangedObjects.status' do |old, new|
       project_updated!
     end
-  end
-  
-  def setup_menu
-    all_projects.reverse.each do |project|
-      menu     = ProjectMenuItem.alloc.init_with_project project
-      
-      status_menu.insertItem menu, atIndex: 0
-    end
+    
+    observe projects_controller, :key_path => 'arrangedObjects.enabled' { project_updated! }
   end
     
-  def schedule_timer
-    setup_menu
-    
+  def schedule_timer    
     self.timer = NSTimer.timerWithTimeInterval defaults['ping_interval'],
       :target   => self,
       :selector => 'ping_ci:',
@@ -131,7 +123,7 @@ class ApplicationController
   end
   
   def project_updated!
-    projects = all_projects
+    projects = all_projects.select(&:enabled?)
         
     self.status =
       if projects.all? { |p| p.status.to_s == 'success' }

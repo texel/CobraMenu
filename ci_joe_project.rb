@@ -9,7 +9,7 @@
 class CIJoeProject < NSManagedObject
   
   attr_accessor :updated, :application_controller
-
+  
   # Accessors for attributes
   #%w(name url uri_scheme port username password status last_status).each do |m|
     #class_eval %Q{
@@ -112,6 +112,7 @@ class CIJoeProject < NSManagedObject
       end
     end
   end
+  alias :update :update! # IB doesn't like exclamation points in its bindings :\
 
   def status=(new_status)
     self.last_status = status
@@ -126,6 +127,10 @@ class CIJoeProject < NSManagedObject
 
   def validateUserInterfaceItem(item)
     true
+  end
+
+  def enabled?
+    [1, true].include? enabled
   end
 
   def validateMenuItem(item)

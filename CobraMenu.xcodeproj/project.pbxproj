@@ -69,9 +69,11 @@
 		7D87580411E422BE006BC6CD /* growlnotify in Copy Executables */ = {isa = PBXBuildFile; fileRef = 7D8757F311E40D61006BC6CD /* growlnotify */; };
 		7D87580811E42D39006BC6CD /* growl_notifier.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D87580711E42D39006BC6CD /* growl_notifier.rb */; };
 		7D87585711E527D3006BC6CD /* LoginItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D87585611E527D3006BC6CD /* LoginItemWrapper.m */; };
+		7D9685E6135B8336006EC162 /* array_selection_transformer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D9685E5135B8336006EC162 /* array_selection_transformer.rb */; };
 		7D9F8E3411E568B600CEAE8C /* observer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7D9F8E3311E568B600CEAE8C /* observer.rb */; };
 		7DA8450E11ECD6F9000E30F8 /* not_blank_value_transformer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */; };
 		7DACF1021351056500F690A5 /* CobraModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7DACF1001351056500F690A5 /* CobraModel.xcdatamodeld */; };
+		7DAD8F8F135AAAB500EE00AD /* ci_joe_menu.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DAD8F8E135AAAB500EE00AD /* ci_joe_menu.rb */; };
 		7DE33F7611EB8504003743C6 /* ci_joe_project.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DE33F7511EB8504003743C6 /* ci_joe_project.rb */; };
 		7DECEF5C135652AA00B9FCD5 /* blank_value_transformer.rb in Resources */ = {isa = PBXBuildFile; fileRef = 7DECEF5B135652AA00B9FCD5 /* blank_value_transformer.rb */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -138,11 +140,13 @@
 		7D87580711E42D39006BC6CD /* growl_notifier.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = growl_notifier.rb; sourceTree = "<group>"; };
 		7D87585511E527D3006BC6CD /* LoginItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginItemWrapper.h; sourceTree = "<group>"; };
 		7D87585611E527D3006BC6CD /* LoginItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginItemWrapper.m; sourceTree = "<group>"; };
+		7D9685E5135B8336006EC162 /* array_selection_transformer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = array_selection_transformer.rb; sourceTree = "<group>"; };
 		7D9F8E3311E568B600CEAE8C /* observer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = observer.rb; sourceTree = "<group>"; };
 		7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = not_blank_value_transformer.rb; sourceTree = "<group>"; };
 		7DACF1011351056500F690A5 /* CobraModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CobraModel.xcdatamodel; sourceTree = "<group>"; };
 		7DACF1131351347300F690A5 /* CobraModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		7DACF1141351434300F690A5 /* CobraModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 3.xcdatamodel"; sourceTree = "<group>"; };
+		7DAD8F8E135AAAB500EE00AD /* ci_joe_menu.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ci_joe_menu.rb; sourceTree = "<group>"; };
 		7DD6047513536776002EFE8C /* CobraModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CobraModel 4.xcdatamodel"; sourceTree = "<group>"; };
 		7DE33F7511EB8504003743C6 /* ci_joe_project.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = ci_joe_project.rb; sourceTree = "<group>"; };
 		7DECEF5B135652AA00B9FCD5 /* blank_value_transformer.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = blank_value_transformer.rb; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				7D679A5411DFBD2200A91A79 /* preferences_controller.rb */,
 				7D679A2C11DEE6E100A91A79 /* application_controller.rb */,
 				7D52809F13569DEE0027FAF1 /* project_menu_item.rb */,
+				7DAD8F8E135AAAB500EE00AD /* ci_joe_menu.rb */,
 				7D8757B111E2CC79006BC6CD /* keyboard_handler.rb */,
 				7D87580711E42D39006BC6CD /* growl_notifier.rb */,
 				7D87585511E527D3006BC6CD /* LoginItemWrapper.h */,
@@ -179,6 +184,7 @@
 				7DA8450D11ECD6F9000E30F8 /* not_blank_value_transformer.rb */,
 				7DECEF5B135652AA00B9FCD5 /* blank_value_transformer.rb */,
 				7D2C9166133BDA9C0046411A /* AppDelegate.rb */,
+				7D9685E5135B8336006EC162 /* array_selection_transformer.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -374,6 +380,8 @@
 				7D2C9167133BDA9C0046411A /* AppDelegate.rb in Resources */,
 				7DECEF5C135652AA00B9FCD5 /* blank_value_transformer.rb in Resources */,
 				7D5280A013569DEE0027FAF1 /* project_menu_item.rb in Resources */,
+				7DAD8F8F135AAAB500EE00AD /* ci_joe_menu.rb in Resources */,
+				7D9685E6135B8336006EC162 /* array_selection_transformer.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,9 +31,18 @@ class ProjectMenuItem < NSMenuItem
     menu.insertItem view, atIndex: 1
     
     self.setSubmenu menu
+    self.hidden = !project.enabled?
     
     observe project, :key_path => 'status' do |old, new|
       self.status = new
+    end
+    
+    observe project, :key_path => 'name' do |old, new|
+      self.title = new
+    end
+    
+    observe project, :key_path => 'enabled' do |old, enabled|
+      self.hidden = !enabled
     end
     
     self
