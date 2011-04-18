@@ -135,7 +135,7 @@ class CIJoeProject < NSManagedObject
   end
 
   def enabled?
-    [1, true].include? enabled
+    url && (url.size > 0) && ([1, true].include? enabled)
   end
 
   def validateMenuItem(item)

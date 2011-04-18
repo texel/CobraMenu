@@ -144,13 +144,13 @@
 			<object class="NSWindowTemplate" id="645086856">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{695, 532}, {241, 74}}</string>
+				<string key="NSWindowRect">{{1096, 697}, {241, 74}}</string>
 				<int key="NSWTFlags">611844096</int>
 				<string key="NSWindowTitle">Preferences</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<object class="NSView" key="NSWindowView" id="219668942">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -159,6 +159,7 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{18, 38}, {135, 18}}</string>
 							<reference key="NSSuperview" ref="219668942"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="930086253"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="67871402">
@@ -191,6 +192,8 @@
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{18, 18}, {205, 18}}</string>
 							<reference key="NSSuperview" ref="219668942"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="862471945">
 								<int key="NSCellFlags">-2080244224</int>
@@ -210,6 +213,8 @@
 						</object>
 					</object>
 					<string key="NSFrame">{{7, 11}, {241, 74}}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="495247525"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -849,7 +854,7 @@
 											<string key="NSAction">_popUpItemAction:</string>
 											<reference key="NSTarget" ref="72812820"/>
 										</object>
-										<object class="NSMenuItem" id="639363051">
+										<object class="NSMenuItem" id="789066987">
 											<reference key="NSMenu" ref="628551698"/>
 											<string key="NSTitle">Build</string>
 											<string key="NSKeyEquiv"/>
@@ -1323,10 +1328,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">target: selection</string>
-						<reference key="source" ref="639363051"/>
+						<reference key="source" ref="789066987"/>
 						<reference key="destination" ref="1051730665"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="639363051"/>
+							<reference key="NSSource" ref="789066987"/>
 							<reference key="NSDestination" ref="1051730665"/>
 							<string key="NSLabel">target: selection</string>
 							<string key="NSBinding">target</string>
@@ -1361,7 +1366,7 @@
 						<string key="label">content: uri_schemes</string>
 						<reference key="source" ref="960070158"/>
 						<reference key="destination" ref="270650201"/>
-						<object class="NSNibBindingConnector" key="connector" id="511041235">
+						<object class="NSNibBindingConnector" key="connector" id="578089786">
 							<reference key="NSSource" ref="960070158"/>
 							<reference key="NSDestination" ref="270650201"/>
 							<string key="NSLabel">content: uri_schemes</string>
@@ -1383,7 +1388,7 @@
 							<string key="NSLabel">selectedObject: selection.uri_scheme</string>
 							<string key="NSBinding">selectedObject</string>
 							<string key="NSKeyPath">selection.uri_scheme</string>
-							<reference key="NSPreviousConnector" ref="511041235"/>
+							<reference key="NSPreviousConnector" ref="578089786"/>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1825,7 +1830,7 @@
 							<reference ref="943168274"/>
 							<reference ref="594995172"/>
 							<reference ref="567168088"/>
-							<reference ref="639363051"/>
+							<reference ref="789066987"/>
 						</object>
 						<reference key="parent" ref="72812820"/>
 					</object>
@@ -1908,7 +1913,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">919</int>
-						<reference key="object" ref="639363051"/>
+						<reference key="object" ref="789066987"/>
 						<reference key="parent" ref="628551698"/>
 					</object>
 				</object>

@@ -18,11 +18,17 @@ class CIJoeMenu < NSMenu
   end
   
   def update_menu
-    projects_controller.arrangedObjects.each do |project|
+    projects = projects_controller.arrangedObjects
+    
+    projects.each do |project|
       menu = self.menus[project.object_id] ||=
         ProjectMenuItem.alloc.init_with_project(project).tap do |menu|
           self.insertItem menu, atIndex: 0
         end            
+    end
+    
+    menus.keys.each do |key|
+      menus.delete(key) unless projects.find { |o| o.object_id == key }
     end
   end
 end

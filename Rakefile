@@ -11,9 +11,9 @@ ChocTop::Configuration.new do |s|
   s.build_target = 'Embed'
 
   # Custom DMG
-  # s.background_file = "background.jpg"
-  # s.app_icon_position = [100, 90]
-  # s.applications_icon_position =  [400, 90]
+  s.background_file = "backing.jpg"
+  s.app_icon_position = [120, 225]
+  s.applications_icon_position =  [388, 225]
   # s.volume_icon = "dmg.icns"
   # s.applications_icon = "appicon.icns" # or "appicon.png"
 end

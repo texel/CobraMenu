@@ -40,12 +40,14 @@ class ProjectMenuItem < NSMenuItem
     end
     
     observe project, :key_path => 'name' do |old, new|
-      self.title = new
+      self.title = new if new
     end
     
     observe project, :key_path => 'enabled' do |old, enabled|
       self.hidden = !enabled
     end
+    
+    observe project, :key_path => 'url' { self.hidden = !project.enabled? }
     
     self
   end

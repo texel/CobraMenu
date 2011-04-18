@@ -116,10 +116,7 @@ class ApplicationController
   def ping_ci(sender)
     NSLog("Pinging CI")
     
-    all_projects.each do |project|
-      NSLog("updating project:")
-      NSLog(project.description)
-      
+    all_projects.select(&:enabled?).each do |project|
       project.update! self
     end
   end
