@@ -8,7 +8,7 @@ ChocTop::Configuration.new do |s|
   s.host     = 'dl.cobramenu.onehub.com'
   s.remote_dir = '/path/to/upload/root/of/app'
   
-  s.build_target = 'Embed'
+  s.build_target = 'Deploy'
 
   # Custom DMG
   s.background_file = "backing.jpg"
