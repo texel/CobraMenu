@@ -51,23 +51,24 @@ class CIJoeProject < NSManagedObject
   
   %w(get post put delete).each do |verb|
     class_eval %Q{
-      def self.#{verb}(path = '', &block)
-        self.request(:#{verb}, path, &block)
+      def self.#{verb}(path = '', body = '', &block)
+        self.request(:#{verb}, path, body, &block)
       end
       
-      def #{verb}(path = '', &block)
-        request(:#{verb}, path, &block)
+      def #{verb}(path = '', body = '', &block)
+        request(:#{verb}, path, body, &block)
       end
     }
   end
 
-  def request(verb, path = '', &block)
+  def request(verb, path = '', body = '', &block)
     request = NSMutableURLRequest.new.tap do |r|
       r.URL        = NSURL.URLWithString "#{full_url}/#{path}"
       r.HTTPMethod = verb.to_s.upcase
+      r.HTTPBody   = body.dataUsingEncoding NSUTF8StringEncoding
     end
     
-    puts request.URL.description    
+    puts request.URL.description
     delegate = CIJoeDelegate.new(&block)
     
     NSURLConnection.connectionWithRequest request, delegate: delegate
@@ -125,7 +126,7 @@ class CIJoeProject < NSManagedObject
   end
 
   def trigger_build(sender)
-    post do |req|
+    post '', 'rebuild=true' do |req|
       req.success { update! self }
     end
   end
