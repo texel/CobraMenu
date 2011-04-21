@@ -12,13 +12,14 @@ class ApplicationController
   include Observer
 
   attr_accessor :status_item, :status_images, :status_menu, :preferences_controller, :defaults, :timer, :status, :last_status
-  attr_accessor :projects_window, :projects_controller, :app_delegate, :uri_schemes
+  attr_accessor :projects_window, :projects_controller, :app_delegate, :uri_schemes, :first_run
     
   DEFAULT_VALUES = {
     'url'                   => '',
     'ping_interval'         => 60,
     'auto_launch'           => false,
-    'sticky_notifications'  => true
+    'sticky_notifications'  => true,
+    'setup_version'         => 0
   }
   
   STATUS_IMAGES = {}.tap do |h|
@@ -60,7 +61,7 @@ class ApplicationController
     end
     
     observe projects_controller, :key_path => 'content' do
-      self.timer || schedule_timer
+      ping_ci self
     end
     
     observe projects_controller, :key_path => 'arrangedObjects' do |old, new|
@@ -74,6 +75,13 @@ class ApplicationController
     observe projects_controller, :key_path => 'arrangedObjects.enabled' { project_updated! }
     
     self.uri_schemes = %w(http:// https://) # Yes, I'm aware of how ghetto this is.
+    
+    if defaults['setup_version'] < 1
+      defaults['setup_version'] = 1
+      show_projects_window self
+    end
+    
+    schedule_timer
   end
     
   def schedule_timer    
@@ -125,7 +133,9 @@ class ApplicationController
     projects = all_projects.select(&:enabled?)
         
     self.status =
-      if projects.all? { |p| p.status.to_s == 'success' }
+      if !projects.any?
+        :inactive
+      elsif projects.all? { |p| p.status.to_s == 'success' }
         :success
       elsif projects.any? { |p| p.status.to_s == 'failure' }
         :failure
